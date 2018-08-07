@@ -1,0 +1,43 @@
+﻿<Window x:Class="ZoomableCanvasTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZoomableCanvasTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Canvas>
+                <Canvas HorizontalAlignment="Center">
+                    <Rectangle HorizontalAlignment="Center" Canvas.Top="0" Canvas.Left="0" StrokeThickness="2" Stroke="Red" Width="50" Height="50"/>
+                </Canvas>
+                
+            </Canvas>
+            <!--<local:ZoomableCanvas x:Name="zoomControl" ClipToBounds="False">
+                <Canvas.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding Path=Value, ElementName=zoomSlider}"
+                                        ScaleY="{Binding Path=Value, ElementName=zoomSlider}"/>
+                </Canvas.LayoutTransform>
+
+                <Canvas>
+                    <Rectangle Canvas.Top="0" Canvas.Left="0" StrokeThickness="2" Stroke="Red" Width="50" Height="50"/>
+                </Canvas>
+                <Canvas>
+                    <Rectangle Canvas.Top="50" Canvas.Left="50" StrokeThickness="2" Stroke="Blue" Width="150" Height="150"/>
+                </Canvas>
+                <Canvas>
+                    <Rectangle Canvas.Top="200" Canvas.Left="200" StrokeThickness="2" Stroke="Green" Width="200" Height="200"/>
+                </Canvas>
+
+            </local:ZoomableCanvas>-->
+        </ScrollViewer>
+        <Slider Grid.Row="1" VerticalAlignment="Center" x:Name="zoomSlider" Minimum="0.1" Maximum="5" Value="{Binding ElementName=zoomControl, Path=ZoomFactor}"/>
+    </Grid>
+</Window>
